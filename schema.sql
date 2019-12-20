@@ -6,8 +6,8 @@ CREATE TABLE employees(
 id INT NOT NULL AUTO_INCREMENT,
 firstname VARCHAR(30) NOT NULL,
 lastname VARCHAR(30) NOT NULL,
-roleId int NOT NULL,
-manager_id int,
+FOREIGN KEY (role_id) REFERENCES roles(id) ,
+FOREIGN KEY (manager_id) REFERENCES employees(id),
 PRIMARY KEY (id)
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE roles(
 id int NOT NULL AUTO_INCREMENT,
 title VARCHAR(30) NOT NULL,
 salary decimal NOT NULL,
-department_id INT NOT NULL,
+FOREIGN KEY (department_id) REFERENCES departments(id),
 PRIMARY KEY (id)
 
 );
